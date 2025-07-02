@@ -23,15 +23,29 @@ import { computed } from 'vue';
         counter.value++;
         console.info('Counter:', counter.value);
     }
+    function changeFirstName() {
+        person.firstName = document.getElementById('firstName2').value;
+    }
+    function changeLastName(event) {
+        person.lastName = event.target.value;
+    }
 </script>
 <template>
     <div>
-        <button @click="increment">Increment Counter</button>
-        <p>Counter: {{ counter }}</p>
-        <h1 class="hello">Hello {{ fullName }}</h1>
-        <input type="text" id="firstName" placeholder="First Name" >
-        <input type="text" id="lastName" placeholder="Last Name">
-        <button @click="sayHello">Say Hello</button>
+        <form action="">
+
+            <button @click="increment">Increment Counter</button>
+            <button v-on:click="counter++">increment inline</button>
+            <p>Counter: {{ counter }}</p>
+            <h1 class="hello">Hello {{ fullName }}</h1>
+            <input type="text" id="firstName" placeholder="First Name" >
+            <input type="text" id="lastName" placeholder="Last Name">
+            <input type="text" placeholder="First Name" @input="changeFirstName" id="firstName2">
+            <input type="text" placeholder="Last Name" @input="changeLastName">
+            <input type="text" v-model="person.firstName" placeholder="First Name">
+            <input type="text" v-model="person.lastName" placeholder="Last Name">
+            <button @click.prevent="sayHello">Say Hello</button>
+        </form>
 
     </div>
 </template>
