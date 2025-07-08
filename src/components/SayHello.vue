@@ -44,6 +44,7 @@ import { computed } from 'vue';
             <input type="text" placeholder="Last Name" @input="changeLastName">
             <input type="text" v-model="person.firstName" placeholder="First Name">
             <input type="text" v-model="person.lastName" placeholder="Last Name">
+            <!-- ini cuma contoh untuk v-model yang hanya bisa digunakan di input, textarea, dan select -->
             <button @click.prevent="sayHello">Say Hello</button>
         </form>
 
