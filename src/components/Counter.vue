@@ -1,6 +1,13 @@
 <script setup>
 import { ref } from 'vue';
 import { nextTick } from 'vue';
+
+const props = defineProps([
+    'title','initialCount'
+
+]);
+// props.title = props.title || 'Counter'; // Set default title if not provided
+
 let count = 0;
 function increment() {
     count++;
@@ -9,7 +16,7 @@ function increment() {
 }
 let count2 = ref(0);
 let count3 = ref({
-    no: 0,
+    no: Number(props.initialCount) || 0,
     name: 'Counter 3',
 })
 function increment2() {
@@ -30,7 +37,9 @@ async function incrementNextTick() {
 
 </script>
 <template>
-    <h1 id="count">Counter : {{ count }}</h1>
+
+    <h1 id="count">Counter {{ props.title }} : {{ count }}</h1>
+   
     <button @click="increment">Increment</button>
     <button @click="decrement">Decrement</button>
     <h1>Counter 2 : {{ count2 }}</h1>
