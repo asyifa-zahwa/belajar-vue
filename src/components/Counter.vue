@@ -38,7 +38,7 @@ async function incrementNextTick() {
 </script>
 <template>
 
-    <h1 id="count">Counter {{ props.title }} : {{ count }}</h1>
+    <h1>Counter {{ props.title }} : {{ count }}</h1>
    
     <button @click="increment">Increment</button>
     <button @click="decrement">Decrement</button>

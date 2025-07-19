@@ -37,7 +37,7 @@ onUpdated(() => {
 </script>
 <template>
     <div>
-        <h1 class="hello">Notes</h1>
+        <h1 >Notes</h1>
         <input type="text" v-model="note" ref="noteInput" placeholder="Add a note" />
         <button @click.prevent="addNote">Add Note</button>
         <ul>

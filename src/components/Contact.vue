@@ -1,5 +1,7 @@
 <script setup>
 import { reactive } from 'vue';
+import ContactForm from './ContactForm.vue';
+import ContactList from './ContactList.vue';
    
     const person = reactive({
         name: '',
@@ -14,25 +16,9 @@ import { reactive } from 'vue';
 </script>
 <template>
     <div>
-        <h1 class="hello">Contact Us</h1>
-        <form action="">
-            <input type="text" v-model="person.name" placeholder="Name">
-            <input type="email" v-model="person.email" placeholder="Email">
-            <textarea v-model="person.message" placeholder="Message"></textarea>
-            <input type="number" v-model.number="person.age" placeholder="Age"> 
-            <!-- dikasih number agar bisa dioperasikan -->
-            <select v-model="person.type">
-                <option value="regular">Regular</option>
-                <option value="vip">VIP</option>
-            </select>
-            <label>
-                <input type="checkbox" v-model="person.complain"> Complain
-            </label>
-            <button @click.prevent>Submit</button>
-        </form>
-        <pre>{{ person }}</pre>
-        <p>{{ typeof(person.age) }}</p>
-        <p>{{ person.age > 17 ? 'You are an adult' : 'You are a minor' }}</p>
+
+        <ContactForm v-model="person" />
+        <ContactList v-model:name.uppercase="person.name" :email="person.email" :message="person.message" :age="person.age" :type="person.type" :complain="person.complain" />
     </div>
 </template>
 <style scoped>

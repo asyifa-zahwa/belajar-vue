@@ -25,7 +25,7 @@ const emit = defineEmits(['click']);
 <template>
     <div>
 
-        <h1 id="count">Counter {{ name }} : {{ counter }}</h1>
+        <h1 >Counter {{ name }} : {{ counter }}</h1>
         <button @click="emit('click', increment)">Increment</button>
     </div>
    
